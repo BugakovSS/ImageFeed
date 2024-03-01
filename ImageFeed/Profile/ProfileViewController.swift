@@ -2,56 +2,98 @@
 import UIKit
 
 final class ProfileViewController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        createProfilePhoto()
-        createLabel(textLabel: "Бугаков Сергей", fontSize: 23, bold: true, constant: 100, color: .ypWhite)
-        createLabel(textLabel: "@BugaSS", fontSize: 13, bold: false, constant: 138, color: .ypGray)
-        createLabel(textLabel: "Hello World!", fontSize: 13, bold: false, constant: 166, color: .ypWhite)
-        createButton(constant: 45)
-    }
-    
-    func createProfilePhoto() {
+    //MARK: elementsView
+    private let profileImageView: UIImageView = {
         let profilePhoto = UIImage(systemName: "person.crop.circle.fill")
         let imageView = UIImageView(image: profilePhoto)
-        imageView.tintColor = .white
+        imageView.tintColor = .ypWhite1
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(imageView)
-        imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
-    }
+        return imageView
+    }()
     
-    func createLabel (textLabel: String, fontSize: Double, bold: Bool, constant: Double, color: UIColor) {
+    private let nameLabel: UILabel = {
         let label = UILabel()
+        let bold: Bool = true
+        let fontSize = 23.0
+        let color: UIColor = .ypWhite
+        let textLabel: String = "Бугаков Сергей"
+        
         label.text = "\(textLabel)"
-        if bold {
-            label.font = UIFont.boldSystemFont(ofSize:fontSize)
-        } else {
-            label.font = UIFont.systemFont(ofSize: fontSize)
-        }
+        label.font = UIFont.boldSystemFont(ofSize:fontSize)
         label.textColor = color
         label.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(label)
-        label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: constant).isActive = true
-        label.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-    }
+        return label
+    }()
     
-    func createButton (constant: Double) {
+    private let emailLabel: UILabel = {
+        let label = UILabel()
+        let bold: Bool = false
+        let fontSize = 13.0
+        let color: UIColor = .ypGray
+        let textLabel: String = "@bugass"
+        
+        label.text = "\(textLabel)"
+        label.font = UIFont.systemFont(ofSize: fontSize)
+        label.textColor = color
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let statusLabel: UILabel = {
+        let label = UILabel()
+        let bold: Bool = true
+        let fontSize = 13.0
+        let color: UIColor = .ypWhite
+        let textLabel: String = "hello world!"
+        
+        label.text = "\(textLabel)"
+        label.font = UIFont.systemFont(ofSize: fontSize)
+        label.textColor = color
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let logOutButton: UIButton = {
         let button = UIButton.systemButton(
             with: UIImage(systemName: "ipad.and.arrow.forward")!,
             target: self,
             action: #selector(Self.logOut)
         )
-        button.tintColor = .red
+        button.tintColor = .ypRed1
         button.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(button)
-        button.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        button.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: constant).isActive = true
+        return button
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addSubViews()
+        setupConstraints()
     }
     
+    private func addSubViews() {
+        view.addSubview(profileImageView)
+        view.addSubview(nameLabel)
+        view.addSubview(emailLabel)
+        view.addSubview(statusLabel)
+        view.addSubview(logOutButton)
+    }
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            profileImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            profileImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            profileImageView.widthAnchor.constraint(equalToConstant: 70),
+            profileImageView.heightAnchor.constraint(equalToConstant: 70),
+            nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
+            nameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            emailLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 138),
+            emailLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            statusLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 166),
+            statusLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            logOutButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            logOutButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 45)])
+    }
+        
     @objc
     private func logOut() {
         print("User Log Out!")

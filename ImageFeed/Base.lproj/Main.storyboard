@@ -29,7 +29,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="Uqw-PN-HC6" userLabel="Cell Image">
-                                                    <rect key="frame" x="20" y="11" width="390" height="205"/>
+                                                    <rect key="frame" x="16" y="4" width="398" height="219"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                             <integer key="value" value="16"/>
@@ -38,7 +38,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11 февраля 2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APY-3o-cLb" userLabel="data label">
-                                                    <rect key="frame" x="36" y="182" width="152" height="18"/>
+                                                    <rect key="frame" x="24" y="197" width="152" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="152" id="IPO-W6-QeI"/>
                                                         <constraint firstAttribute="height" constant="18" id="QYT-rb-HfL"/>
@@ -48,7 +48,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEN-F7-fGM" userLabel="like button">
-                                                    <rect key="frame" x="366" y="11" width="44" height="44"/>
+                                                    <rect key="frame" x="370" y="4" width="44" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="C6P-Is-lwF"/>
                                                         <constraint firstAttribute="height" constant="44" id="ppS-RQ-kk8"/>
@@ -60,14 +60,14 @@
                                             </subviews>
                                             <color key="backgroundColor" name="YP Black"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Uqw-PN-HC6" secondAttribute="trailing" id="8vF-ld-Lzn"/>
-                                                <constraint firstItem="Uqw-PN-HC6" firstAttribute="bottomMargin" secondItem="APY-3o-cLb" secondAttribute="bottom" constant="8" id="K7z-h2-N9I"/>
-                                                <constraint firstItem="Uqw-PN-HC6" firstAttribute="top" secondItem="cXS-6s-uGC" secondAttribute="topMargin" id="LW8-7g-vc0"/>
-                                                <constraint firstItem="APY-3o-cLb" firstAttribute="leading" secondItem="Uqw-PN-HC6" secondAttribute="leadingMargin" constant="8" id="aDf-hL-HNg"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="APY-3o-cLb" secondAttribute="trailing" id="ae7-vT-azw"/>
+                                                <constraint firstAttribute="trailing" secondItem="Uqw-PN-HC6" secondAttribute="trailing" constant="16" id="8vF-ld-Lzn"/>
+                                                <constraint firstItem="Uqw-PN-HC6" firstAttribute="bottom" secondItem="APY-3o-cLb" secondAttribute="bottom" constant="8" id="K7z-h2-N9I"/>
+                                                <constraint firstItem="Uqw-PN-HC6" firstAttribute="top" secondItem="cXS-6s-uGC" secondAttribute="top" constant="4" id="LW8-7g-vc0"/>
+                                                <constraint firstItem="APY-3o-cLb" firstAttribute="leading" secondItem="Uqw-PN-HC6" secondAttribute="leading" constant="8" id="aDf-hL-HNg"/>
+                                                <constraint firstItem="Uqw-PN-HC6" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="APY-3o-cLb" secondAttribute="trailing" constant="8" id="ae7-vT-azw"/>
                                                 <constraint firstItem="AEN-F7-fGM" firstAttribute="top" secondItem="Uqw-PN-HC6" secondAttribute="top" id="agx-dD-Xgh"/>
-                                                <constraint firstItem="Uqw-PN-HC6" firstAttribute="leading" secondItem="cXS-6s-uGC" secondAttribute="leadingMargin" id="dfG-7E-O3B"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Uqw-PN-HC6" secondAttribute="bottom" id="qaJ-1A-TFe"/>
+                                                <constraint firstItem="Uqw-PN-HC6" firstAttribute="leading" secondItem="cXS-6s-uGC" secondAttribute="leading" constant="16" id="dfG-7E-O3B"/>
+                                                <constraint firstAttribute="bottom" secondItem="Uqw-PN-HC6" secondAttribute="bottom" constant="4" id="qaJ-1A-TFe"/>
                                                 <constraint firstItem="Uqw-PN-HC6" firstAttribute="trailing" secondItem="AEN-F7-fGM" secondAttribute="trailing" id="ySa-So-m9W"/>
                                             </constraints>
                                         </tableViewCellContentView>

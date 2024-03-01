@@ -2,18 +2,19 @@
 import UIKit
 
 final class SingleImageViewController: UIViewController {
-    var image: UIImage! {
+    var image: UIImage? {
         didSet {
             guard isViewLoaded else { return }
             singleImageView.image = image
-            rescaleAndCenterImageInScrollView(image: image)
+            if let image = image {
+                rescaleAndCenterImageInScrollView(image: image)}
         }
     }
     
-    @IBOutlet var singleImageView: UIImageView!
-    @IBOutlet private var backButton: UIButton!
-    @IBOutlet var scrollView: UIScrollView!
-    @IBOutlet var shareButton: UIButton!
+    @IBOutlet weak var singleImageView: UIImageView!
+    @IBOutlet private weak var backButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var shareButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -22,14 +23,15 @@ final class SingleImageViewController: UIViewController {
         scrollView.maximumZoomScale = 1.25
         singleImageView.image = image
         singleImageView.frame.size = image!.size
-        rescaleAndCenterImageInScrollView(image: image)
+        if let image = image {
+            rescaleAndCenterImageInScrollView(image: image)}
     }
     
     @IBAction private func backActionButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func didTapShareButton(_ sender: Any) {
+    @IBAction private func didTapShareButton(_ sender: Any) {
         let item = [image]
         let share = UIActivityViewController(activityItems: item as [Any], applicationActivities: nil)
         present(share, animated: true, completion: nil)

@@ -63,13 +63,13 @@ final class ProfileViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubViews()
         setupConstraints()
     }
-    
+    //MARK: addSubview
     private func addSubViews() {
         view.addSubview(profileImageView)
         view.addSubview(nameLabel)
@@ -77,7 +77,7 @@ final class ProfileViewController: UIViewController {
         view.addSubview(statusLabel)
         view.addSubview(logOutButton)
     }
-    
+    //MARK: constraint
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             profileImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
